@@ -28,10 +28,15 @@ class PagesMain:
         self.driver.find_element(By.XPATH, '//*[@data-test-id=\"submit-button\"]').click()
         self.driver.switch_to.default_content()
 
+
     def get_login(self):
         wait = WebDriverWait(self.driver, 30)
         login = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'ph-project__user-name'))).text
         return login
+
+    def create_male(self):
+        self.driver.find_element(By.CLASS_NAME, 'compose-button__txt').click()
+
 
     def get_weather(self):
         return self.driver.find_element(By.XPATH, '//span[@data-testid=\"weather-temp\"]').text
