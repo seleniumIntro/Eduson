@@ -38,10 +38,6 @@ def get_config_data(cfg_file_path: str) -> dict:
     return read_config_file(file_path=cfg_file_path)
 
 
-# @pytest.fixture(scope='function')
-# def aeropay_actions(configuration, driver: WebDriver) -> AeropayActions:
-#    return AeropayActions(configuration, driver)
-
 @pytest.fixture(scope='function')
 def clear_bucket():
     """
