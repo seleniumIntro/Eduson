@@ -19,9 +19,9 @@ def driver():
 
 
 @pytest.fixture(scope='session')
-def cfg_file_path(environ) -> str:
-    return r'C:\Users\andsb\sweedtests\autotests\configs\stg_s42_cfg.json'
-    # f'{Settings.CONFIGS_PATH}/{Settings.CONFIGS.get(environ)}'
+def cfg_file_path() -> str:
+    return r'C:\Users\andsb\Eduson\configs\prod.json'
+    #return f'{Settings.CONFIGS_PATH}/{Settings.CONFIGS.get(environ)}'
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -50,13 +50,14 @@ def clear_bucket():
     return 14
 
 
-@pytest.fixture()
-def clear_bucket_on_failure(self, request):
-    yield
-    self.bucket.highlight_and_make_screenshot()
-    if request.session.testsfailed:
-        self.cart.open_page()
-        self.cart.empty_bucket()
+#@pytest.fixture()
+#def clear_bucket_on_failure(self, request):
+ #   yield
+
+#    self.bucket.highlight_and_make_screenshot()
+#    if request.session.testsfailed:
+ #       self.cart.open_page()
+ #       self.cart.empty_bucket()
 
 
 def read_config_file(file_path) -> dict:

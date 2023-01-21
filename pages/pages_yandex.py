@@ -18,7 +18,7 @@ class PagesYandex:
         return Wait(self.driver, limeout).until(EC.visibility_of_element_lacated(locator))
 
     def login(self, username, password):
-        self.driver.find_element(By.XPATH, '//input[@type=\"submit\"]').click()
+        #self.driver.find_element(By.XPATH, '//input[@type=\"submit\"]').click()
         self.driver.find_element(By.XPATH, '//span[text()="Войти"]').click()
         self.driver.find_element(By.XPATH, '//button[@data-type=\"login\"]').click()
         self.driver.find_element(By.ID, 'passp-field-login').send_keys(username)
