@@ -3,22 +3,12 @@
     "store": "https://market.yandex.ru/",
     "cart": "https://market.yandex.ru/my/cart"
   },
-  "users": {
-    "user_0": {
+  "user": {
       "login": "selenium.introduction@mail.ru",
       "password": "qwerty@2020"
     },
-    "user_1": {
-      "login": "just_test@mail.ru",
-      "password": "qwerty@2020"
-    }
-  },
   "goods": {
-    "goods_0": {
-      "url_goods_0": "https://market.yandex.ru/product--akkumuliatornaia-drel-shurupovert-nocord-ncd-20-2-15-c/1775308221"
-    },
-    "goods_1": {
+      "url_goods_0": "https://market.yandex.ru/product--akkumuliatornaia-drel-shurupovert-nocord-ncd-20-2-15-c/1775308221",
       "url_goods_1": "https://market.yandex.ru/product--ae-770-nabor-dlia-makiiazha-2-pudry-8-rumian-120-tenei/1735606632"
-    }
   }
 }

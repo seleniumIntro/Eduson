@@ -7,6 +7,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
+from configs.config import GlobalConfig
+
 
 @pytest.fixture()
 def driver():
@@ -21,7 +23,7 @@ def driver():
 @pytest.fixture(scope='session')
 def cfg_file_path() -> str:
     return r'C:\Users\andsb\Eduson\configs\prod.json'
-    #return f'{Settings.CONFIGS_PATH}/{Settings.CONFIGS.get(environ)}'
+    # return f'{Settings.CONFIGS_PATH}/{Settings.CONFIGS.get(environ)}'
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -46,14 +48,14 @@ def clear_bucket():
     return 14
 
 
-#@pytest.fixture()
-#def clear_bucket_on_failure(self, request):
- #   yield
+# @pytest.fixture()
+# def clear_bucket_on_failure(self, request):
+#   yield
 
 #    self.bucket.highlight_and_make_screenshot()
 #    if request.session.testsfailed:
- #       self.cart.open_page()
- #       self.cart.empty_bucket()
+#       self.cart.open_page()
+#       self.cart.empty_bucket()
 
 
 def read_config_file(file_path) -> dict:
@@ -61,6 +63,13 @@ def read_config_file(file_path) -> dict:
         data = json.load(config_file)
 
     return data
+
+
+@pytest.fixture(scope='session')
+def configuration(get_config_data) -> GlobalConfig:
+    test_configuration = GlobalConfig(get_config_data)
+
+    return test_configuration
 
 
 @pytest.fixture(scope='session', autouse=True)
