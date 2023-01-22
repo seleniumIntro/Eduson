@@ -42,6 +42,14 @@ def get_config_data(cfg_file_path: str) -> dict:
 
 @pytest.fixture(scope='function')
 def clear_bucket():
+    print("очистка")
+    """
+    Фикстура для очистки корзины
+    """
+
+@pytest.fixture(scope='function')
+def test_print():
+    print("очистка")
     """
     Фикстура для очистки корзины
     """
