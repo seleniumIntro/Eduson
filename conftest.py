@@ -45,8 +45,6 @@ def clear_bucket():
     """
     Фикстура для очистки корзины
     """
-    return 14
-
 
 # @pytest.fixture()
 # def clear_bucket_on_failure(self, request):

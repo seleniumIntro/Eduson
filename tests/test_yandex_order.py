@@ -1,19 +1,19 @@
 import allure
+import pytest
 
 from configs.config import GlobalConfig
 from pages.pages_yandex import PagesYandex
 
 
-class TestYandex:
-    @allure.feature('Example tests')
-    def test_order(self, driver, configuration: GlobalConfig):
-        #username = 'selenium.introduction@mail.ru'
-        #password = 'qwerty@2020'
-
-        pages_ya = PagesYandex(driver, 'https://market.yandex.ru/')
+class TestParallel:
+    @allure.feature('yandex cart test')
+    def test_search(self, driver, configuration: GlobalConfig):
+        pages_ya = PagesYandex(driver, configuration.base_url, configuration.cart_url, configuration.goods_0)
         pages_ya.open()
-        with allure.step('Go to page "Orders".'):
+        with allure.step('Login'):
             pages_ya.login(configuration.login, configuration.password)
-        #pages_ya.create_bucket()
-
+        with allure.step('Search goods'):
+            pages_ya.use_search()
+        #with allure.step('Check cart'):
+            #print(pages_ya.get_url())
 
