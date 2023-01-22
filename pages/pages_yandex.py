@@ -35,8 +35,9 @@ class PagesYandex:
     def use_search(self):
         self.driver.find_element(By.ID, 'header-search').send_keys("Nocord NCD-20.2.15.C")
         self.driver.find_element(By.XPATH, '//span[text()="Найти"]').click()
-        time.sleep(10)
-        self.driver.find_element(By.XPATH, '//a[@title=\'Аккумуляторная дрель-шуруповерт Nocord, 20В, 2х1.5 А·ч Li-Ion, в кейсе + 24 предмета оснастки, NCD-20.2.15.C\']').click()
+        wait = WebDriverWait(self.driver, 30)
+        goods = wait.until(EC.visibility_of_element_located((By.XPATH, '//a[@title=\'Аккумуляторная дрель-шуруповерт Nocord, 20В, 2х1.5 А·ч Li-Ion, в кейсе + 24 предмета оснастки, NCD-20.2.15.C\']'))).click()
+        #self.driver.find_element(By.XPATH, '//a[@title=\'Аккумуляторная дрель-шуруповерт Nocord, 20В, 2х1.5 А·ч Li-Ion, в кейсе + 24 предмета оснастки, NCD-20.2.15.C\']').click()
 
     def get_url(self):
         return self.driver.get_url()
