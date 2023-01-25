@@ -7,7 +7,7 @@ from pages.pages_yandex import PagesYandex
 
 @allure.feature('Yandex  tests')
 class TestYandex:
-    @allure.feature('yandex search test')
+
     def test_search(self, driver, configuration: GlobalConfig):
         pages_ya = PagesYandex(driver, configuration.base_url, configuration.cart_url, configuration.goods_0)
         pages_ya.open()

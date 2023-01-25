@@ -6,7 +6,7 @@ from pages.pages_main import PagesMain
 from pages.pages_yandex import PagesYandex
 
 
-#pytest.mark.xdist_group("group1")
+pytest.mark.xdist_group("group1")
 class TestParallel:
 
     def test_order(self, driver, configuration: GlobalConfig):
