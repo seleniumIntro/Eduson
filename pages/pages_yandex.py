@@ -18,9 +18,6 @@ class PagesYandex:
     def open(self):
         self.driver.get(self.url)
 
-    def element_is_visible(self, locator, limeout=30):
-        return Wait(self.driver, limeout).until(EC.visibility_of_element_lacated(locator))
-
     def login(self, username, password):
         self.driver.find_element(By.XPATH, '//*[@id="root"]/div/div/form/div[2]/div/div/div[1]/input').click()
         #self.driver.find_element(By.XPATH, '//*[@type=\"submit\"]')

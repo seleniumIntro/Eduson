@@ -13,7 +13,6 @@ class PagesAmazon:
         self.driver = driver
         self.url = url
 
-
     def open(self):
         self.driver.get(self.url)
 
@@ -26,10 +25,3 @@ class PagesAmazon:
 
     def get_login(self):
         return self.driver.find_element(By.ID, 'nav-link-accountList-nav-line-1').text
-
-
-
-
-
-
-
