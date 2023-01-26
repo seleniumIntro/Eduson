@@ -20,7 +20,8 @@ class PagesGis:
 
     def search(self, city):
         self.driver.find_element(By.XPATH, '//input[@type=\"search\"]').send_keys(city)
-        time.sleep(3)
+        wait = WebDriverWait(self.driver, 30)
+        wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'found')))
         self.driver.find_element(By.XPATH, '//input[@type=\"search\"]').send_keys(Keys.ENTER)
 
     def set_tomorrow(self):
@@ -28,7 +29,8 @@ class PagesGis:
 
     def set_snow(self):
         self.driver.find_element(By.XPATH, '//a[text()="Снег"]').click()
+        time.sleep(10)
 
     def get_snow(self):
-        return self.driver.find_element(By.XPATH, '/html/body/section[2]/div[1]/section[9]/div/div[3]/div/div[3]/div/div/div[1]')\
-            .text
+        return self.driver.find_element(By.XPATH, '//a[text()="Снег"]').text
+        #return self.driver.find_element(By.CLASS_NAME, 'chart.chart-snow)').find_element(By.XPATH, '/div/div[1]').get_attribute('innerHTML')

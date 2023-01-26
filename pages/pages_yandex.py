@@ -35,6 +35,14 @@ class PagesYandex:
         wait.until(EC.visibility_of_element_located((By.XPATH, '//a[@title=\'Аккумуляторная дрель-шуруповерт Nocord, 20В, 2х1.5 А·ч Li-Ion, в кейсе + 24 предмета оснастки, NCD-20.2.15.C\']'))).click()
         #self.driver.find_element(By.XPATH, '//a[@title=\'Аккумуляторная дрель-шуруповерт Nocord, 20В, 2х1.5 А·ч Li-Ion, в кейсе + 24 предмета оснастки, NCD-20.2.15.C\']').click()
 
+    def add_goods(self):
+
+        self.driver.find_element(By.XPATH, '//span[@text()="В корзину"]').click()
+        self.driver.find_element(By.XPATH, '//span[@text()="Добавить в корзину"]').click()
+
+    def go_to_cart(self):
+        self.driver.get(self.cart_url)
+
     def get_url(self):
         return self.driver.current_url
 

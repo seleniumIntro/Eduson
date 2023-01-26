@@ -47,6 +47,20 @@ def clear_bucket():
     Фикстура для очистки корзины
     """
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @pytest.fixture(scope='function')
 def test_print():
     print("очистка")
