@@ -1,3 +1,5 @@
+import time
+
 import pytest
 import json
 
@@ -8,6 +10,8 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 from configs.config import GlobalConfig
+from pages.pages_gis import PagesGis
+from pages.pages_yandex import PagesYandex
 
 
 @pytest.fixture()
@@ -39,43 +43,52 @@ def get_config_data(cfg_file_path: str) -> dict:
     """
     return read_config_file(file_path=cfg_file_path)
 
-
 @pytest.fixture(scope='function')
-def clear_bucket():
-    print("очистка")
-    """
-    Фикстура для очистки корзины
-    """
+def print_city():
+    yield
+    print("Ульяновск")
+
+
+
+
+@pytest.fixture()
+def set_city(driver):
+    pages_main = PagesGis(driver, 'https://www.gismeteo.ru/')
+
+    pages_main.open()
+    pages_main.search("Казань")
+
+
+@pytest.fixture()
+def clear_bucket(driver, configuration):
+    pages_ya = PagesYandex(driver, configuration.base_url, configuration.cart_url, configuration.goods_0)
+    pages_ya.open()
+
+
+
+@pytest.fixture
+def set_city_kazan(driver):
+    pages_main = PagesGis(driver, 'https://www.gismeteo.ru/')
+    pages_main.open()
+    pages_main.search("Казань")
+
+@pytest.fixture
+def set_city_sochi(driver):
+    pages_main = PagesGis(driver, 'https://www.gismeteo.ru/')
+    yield pages_main.open()
+    pages_main.search("Сочи")
+    time.sleep(5)
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='session')
 def test_print():
     print("очистка")
     """
     Фикстура для очистки корзины
     """
-
-# @pytest.fixture()
-# def clear_bucket_on_failure(self, request):
-#   yield
-
-#    self.bucket.highlight_and_make_screenshot()
-#    if request.session.testsfailed:
-#       self.cart.open_page()
-#       self.cart.empty_bucket()
 
 
 def read_config_file(file_path) -> dict:

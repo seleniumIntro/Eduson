@@ -29,8 +29,8 @@ class PagesGis:
 
     def set_snow(self):
         self.driver.find_element(By.XPATH, '//a[text()="Снег"]').click()
-        time.sleep(10)
+        time.sleep(5)
 
-    def get_snow(self):
-        return self.driver.find_element(By.XPATH, '//a[text()="Снег"]').text
+    def check_snow(self):
+        self.driver.find_element(By.XPATH, '//a[text()="Снег"]').text
         #return self.driver.find_element(By.CLASS_NAME, 'chart.chart-snow)').find_element(By.XPATH, '/div/div[1]').get_attribute('innerHTML')

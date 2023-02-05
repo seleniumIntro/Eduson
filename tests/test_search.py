@@ -1,3 +1,5 @@
+import pytest
+
 from pages.pages_main import PagesMain
 
 
@@ -7,3 +9,16 @@ class TestSeach:
         pages_main.open()
         pages_main.use_search()
         assert 'Кошка' == pages_main.get_dzen_result()
+
+
+
+
+
+testparams = [
+    (1, 2, 3, 4, 5, 6, 7),
+    (7, 6, 5, 4, 3, 2, 1),
+]
+
+@pytest.mark.parametrize('a, b, c, d, e, f, g', testparams)
+def test_many_args(a, b, c, d, e, f, g):
+    assert d == 4
