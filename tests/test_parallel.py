@@ -5,7 +5,7 @@ from configs.config import GlobalConfig
 from pages.pages_main import PagesMain
 
 
-# @pytest.mark.xdist_group("group1")
+@pytest.mark.xdist_group("group1")
 class TestParallel:
 
     def test_positive_login_mail_ru(self, driver, configuration: GlobalConfig):
